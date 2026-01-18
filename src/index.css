@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Real Estate Design System */
+
+@layer base {
+  :root {
+    /* Warm cream background for luxury feel */
+    --background: 40 33% 98%;
+    --foreground: 220 20% 15%;
+
+    /* Cards with subtle warmth */
+    --card: 40 25% 97%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    /* Gold/bronze accent for luxury */
+    --primary: 35 45% 35%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Soft neutral secondary */
+    --secondary: 40 15% 92%;
+    --secondary-foreground: 220 20% 20%;
+
+    /* Muted tones */
+    --muted: 40 15% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent with warm gold */
+    --accent: 38 50% 45%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 35 45% 35%;
+
+    --radius: 0.5rem;
+
+    /* Custom premium tokens */
+    --gold: 38 55% 50%;
+    --gold-light: 40 60% 70%;
+    --charcoal: 220 20% 15%;
+    --charcoal-light: 220 15% 25%;
+    --cream: 40 33% 98%;
+    --cream-dark: 40 25% 92%;
+    --warm-white: 40 40% 99%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 10% / 0.7), hsl(220 20% 15% / 0.5));
+    --gradient-gold: linear-gradient(135deg, hsl(38 55% 50%), hsl(35 45% 40%));
+    --gradient-card: linear-gradient(180deg, hsl(40 25% 97%), hsl(40 20% 95%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(220 20% 15% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(220 20% 15% / 0.12);
+    --shadow-gold: 0 8px 30px -4px hsl(38 55% 50% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 33% 98%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 40 33% 98%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 40 33% 98%;
+
+    --primary: 38 55% 55%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 33% 98%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 40 20% 65%;
+
+    --accent: 38 50% 50%;
+    --accent-foreground: 220 20% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 38 55% 55%;
+
+    --gold: 38 55% 55%;
+    --charcoal: 40 33% 98%;
+    --cream: 220 20% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md;
+    background: hsl(var(--warm-white) / 0.85);
+  }
+
+  .hover-underline-animation {
+    @apply relative;
+  }
+
+  .hover-underline-animation::after {
+    @apply absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-gold-light transition-transform duration-300 ease-out;
+    content: '';
+  }
+
+  .hover-underline-animation:hover::after {
+    @apply scale-x-100;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
