@@ -141,8 +141,6 @@ const Hero = () => {
           </div>
           <span className="font-display text-lg font-medium text-cream">La Mota</span>
         </div>
-import { smoothScrollTo } from "@/lib/utils";
-...
         <div className="hidden items-center gap-8 md:flex">
           {[
             { label: "Inicio", href: "#inicio" },
